@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Marker Labels</title>
+   <link rel="stylesheet" type="text/css" href="css/zeek.css" />
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCtnIFLri4f3Zl_P0AzBbVU75kHdyR1F9w&signed_in=true"></script>
+    <script>
+// In the following example, markers appear when the user clicks on the map.
+// Each marker is labeled with a single alphabetical character.
+var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var labelIndex = 0;
+
+function getParameterByName(name, url) {
+   if (!url) url = window.location.href;
+   name = name.replace(/[\[\]]/g, "\\$&");
+   var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+       results = regex.exec(url);
+   if (!results) return null;
+   if (!results[2]) return '';
+   return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+function initialize() {
+  var zloc;
+  //var id=getParameterByName(id);
+  //if (!id) id=1;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      zloc = xhttp.responseText.split("#");
+    }
+  };
+  xhttp.open("GET", "http://java-codeperformance.rhcloud.com/LaunchModule?target=GPS1&id=2", false);
+  xhttp.send();
+  var amanlocation = { lat: parseFloat(zloc[0]), lng: parseFloat(zloc[1]) };
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 12,
+    center: amanlocation
+  });
+
+  // This event listener calls addMarker() when the map is clicked.
+  google.maps.event.addListener(map, 'click', function(event) {
+    addMarker(event.latLng, map);
+  });
+
+  // Add a marker at the center of the map.
+  addMarker(amanlocation, map);
+}
+
+// Adds a marker to the map.
+function addMarker(location, map) {
+  // Add the marker at the clicked location, and add the next-available label
+  // from the array of alphabetical characters.
+  var marker = new google.maps.Marker({
+    position: location,
+    label: labels[labelIndex++ % labels.length],
+    map: map
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  </head>
+  <body>
+	<pre><a href="#" target="_blank">open separately?</a>   CHECK OUT <a href="how/locateMe_how.html">HOW-I-MADE-THIS</a> </pre>  
+    <div id="map"></div>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+body {
+    background-color: rgb(41, 47, 51);
+    color: rgb(207, 207, 207);
+    font-family: "Times New Roman", "Times New Roman", "Times New Roman"; 
+    max-width: 400px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0px auto;
+    margin-top: 10%;
+}
+
+h1 {
+    color: yellow;
+    text-align: center;
+    font-size: 48px;
+    line-height: 10px;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    line-height: 2px;
+}
+h3 {
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    line-height: 2px;
+}
+#quiz{
+	border-style: solid;
+    border-width: 2px;
+    border-color: Lime;
+    text-align: center;
+}
+#answer{
+	height: 50%;
+}
+
+
+
+#tbl_wrap { width: 100%;
+			border-style: solid;
+			border-width: 1px;
+			border-color: White;
+    }
+        #td_wrap { vertical-align: middle; text-align: right; }
+
+
+#header {
+    border-style: solid;
+    border-width: 2px;
+    border-color: Lime;
+    height: 110px;
+}
+
+#left_header {
+	
+	float: left;
+	width: 45%;
+}
+#right_header {
+	margin-top: 12px;
+	float: right;
+	width: 55%;
+	
+}
+
+#left_pane{
+	margin-top: 12px;
+	float: left;
+	width: 15%;
+	text-align: left;
+	line-height: 5px;
+}
+#right_pane{
+    margin-top: 12px;
+	float: right;
+	width: 25%;
+	text-align: center;
+	 border-style: solid;
+	border-width: 1px;
+    border-color: Lime;
+}
+#center_pane{
+	margin-top: 12px;
+    display: inline-block;
+    width: 59.5%;
+    height: 500px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: Lime;
+   
+}
+#content_pane_inner{
+	background-color: black;
+	color: Lime;
+	height: 95%;
+	border-style: solid;
+    border-width: 1px;
+    border-color: Lime;
+    overflow: auto;
+    z-index:1000;
+}
+a.content_link:link {color:Lime;}
+a.content_link:visited {color:Lime;}
+a.content_link:hover {color:White;}
+
+.grow:hover
+{
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+}
+ul{
+	list-style-type: circle;
+}
+.menu_btn
+{
+	background-color: black;
+	color: Lime;
+	display: block;
+	text-align: center;
+	margin: 0 auto;
+	width: 150px;
+}
+.menu_btn:hover{
+	background-color: black;
+	color: Yellow;
+	 font-weight: bold;
+	 -webkit-transform: scale(1.1);
+     -ms-transform: scale(1.1);
+     transform: scale(1.1);
+}
+
+/* unvisited link */
+a:link {
+    color: red;
+}
+
+/* visited link */
+a:visited {
+    color: yellow;
+}
+
+/* mouse over link */
+a:hover {
+    color: hotpink;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}

@@ -1,0 +1,139 @@
+<!--
+   quiztime.html
+   
+   Copyright 2015 ZeeK <avD.ZeeK@gmail.com>
+   
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; either version 2 of the License, or
+   (at your option) any later version.
+   
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+   
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+   MA 02110-1301, USA.
+   
+   
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>QuizTime</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<meta name="generator" content="Geany 1.22" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+	<link rel="stylesheet" type="text/css" href="css/zeek.css" />
+</head>
+<body>
+	<script>
+	var clibboard = "";
+	function returnQuizDateTime(dateObj){
+			var x =  dateObj.toString().split("G");
+			return x[0];
+	}
+	function CopyHTMLToClipboard() {  
+		var element = document.getElementByID("clip");
+		element.value= clibboard;
+		element.select(); 
+		//alert(clibboard);
+    }    
+	function convert() {
+    var DAYLIGHT = -1;
+    var qDate = document.getElementById('qdate').value;
+    var qTime = document.getElementById('qtime').value;
+    var arr_qDate = qDate.split("-");
+    var arr_qTime = qTime.split(":");
+    var tok_full = arr_qDate+","+arr_qTime+",0,0";
+    var tok=tok_full.split(",");
+    var ist_date = new Date(tok[0],tok[1]-1,tok[2],tok[3],tok[4],tok[5],tok[6]);
+    //alert(ist_date); //this alert however is local timezoned
+    var utcDate = new Date(ist_date);
+    utcDate.setHours(ist_date.getHours()-5);
+    utcDate.setMinutes(ist_date.getMinutes() - 30);
+   // alert(utcDate);
+    var answer = "";
+    var diff = -5;
+    var name = "India";
+    var newdate = new Date(utcDate);
+    newdate.setHours(newdate.getHours() - diff);
+    newdate.setMinutes(newdate.getMinutes() + 30);
+    answer += name+" : "+returnQuizDateTime(newdate)+"<br>";
+    clibboard+=name+":"+returnQuizDateTime(newdate)+"\n";
+    
+    var diff = 5;
+    diff = diff + DAYLIGHT;
+    var name = "Boston";
+    var newdate = new Date(utcDate);
+    newdate.setHours(newdate.getHours() - diff);
+    answer += name+" : "+returnQuizDateTime(newdate)+"<br>";
+    clibboard+=name+":"+returnQuizDateTime(newdate)+"\n";
+    
+    var diff = 8;
+    diff = diff + DAYLIGHT;
+    var name = "Pacific";
+    var newdate = new Date(utcDate);
+    newdate.setHours(newdate.getHours() - diff);
+    answer += name+" : "+returnQuizDateTime(newdate)+"<br>";
+    clibboard+=name+":"+returnQuizDateTime(newdate)+"\n";
+    
+     var diff = -3;
+    var name = "Riyadh";
+    var newdate = new Date(utcDate);
+    newdate.setHours(newdate.getHours() - diff);
+    answer += name+" : "+returnQuizDateTime(newdate)+"<br>";
+    clibboard+=name+":"+returnQuizDateTime(newdate)+"\n";
+    
+    var diff = -2;
+    var name = "France";
+    var newdate = new Date(utcDate);
+    newdate.setHours(newdate.getHours() - diff);
+    answer += name+" : "+returnQuizDateTime(newdate)+"<br>";
+    clibboard+=name+":"+returnQuizDateTime(newdate)+"\n";
+    
+    var diff = -8;
+    var name = "Singapore";
+    var newdate = new Date(utcDate);
+    newdate.setHours(newdate.getHours() - diff);
+    answer += name+" : "+returnQuizDateTime(newdate)+"<br>";
+    clibboard+=name+":"+returnQuizDateTime(newdate)+"\n";
+    
+    document.getElementById("answer").innerHTML = answer;
+    document.getElementByID("clip").value = clipboard;
+}
+</script>
+	<div id="quiz">
+        <a href="#" target="_blank">OPEN SEPARATELY?</a>
+	<h2>Beatles AV DA SB Majhi</h2>
+	<h3><em>Quiz Time Tool</em></h3>
+	<table id="tbl_wrap">
+		<tr>
+			<td id="td_wrap">IST Quiz Date Time : </td>
+			<td id="td_wrap" style="text-align: left;">  <input type="date" id="qdate"/><br>
+			<input type="time" id="qtime"/>
+			</td>
+			<td id="td_wrap" style="text-align: center;"><input type="button" value="Get Quiz Time" onclick="convert()"/>
+			</td>
+		</tr>
+		</table>
+		<table  id="tbl_wrap">
+		<tr>
+			<td id="td_wrap" style="text-align: center;"> 
+			<p id="answer"></p>
+			</td>	
+		</tr>
+		<tr><td style="text-align: center;">	(maza aa raha hai QM ?)
+		</td>		
+		</tr>
+		</table>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app version="3.0"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         metadata-complete="false">
+<servlet>
+   <servlet-name>ZMSLnIServlet</servlet-name>
+   <servlet-class>ZMSLnIServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>ZMSLnIServlet</servlet-name>
+   <url-pattern>/ZMSLnIServlet</url-pattern>
+</servlet-mapping>
+
+         
+<servlet>
+   <servlet-name>LaunchModule</servlet-name>
+   <servlet-class>com.zeek.services.LaunchModule</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>LaunchModule</servlet-name>
+   <url-pattern>/LaunchModule</url-pattern>
+</servlet-mapping>
+
+<servlet>
+   <servlet-name>DonnaServlet</servlet-name>
+   <servlet-class>com.zeek.donna.servlet.DonnaServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>DonnaServlet</servlet-name>
+   <url-pattern>/DonnaServlet</url-pattern>
+</servlet-mapping>
+
+
+<servlet>
+   <servlet-name>WebHookServlet</servlet-name>
+   <servlet-class>com.zeek.fbbot.webhook.WebHookServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>WebHookServlet</servlet-name>
+   <url-pattern>/WebHookServlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+   <servlet-name>ApiAiWebHook</servlet-name>
+   <servlet-class>com.zeek.apiai.webhook.ApiAiWebHook</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>ApiAiWebHook</servlet-name>
+   <url-pattern>/ApiAiWebHook</url-pattern>
+</servlet-mapping>
+
+<servlet>
+   <servlet-name>ZHangmanWebHook</servlet-name>
+   <servlet-class>com.zeek.fbbot.webhook.ZHangmanWebHook</servlet-class>
+</servlet>
+
+<servlet-mapping>
+   <servlet-name>ZHangmanWebHook</servlet-name>
+   <url-pattern>/ZHangmanWebHook</url-pattern>
+</servlet-mapping>
+
+
+<welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+</welcome-file-list>
+</web-app>
+

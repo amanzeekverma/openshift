@@ -1,0 +1,35 @@
+<link rel="stylesheet" type="text/css" href="../css/zeek.css" />
+<body>
+<pre>
+<a href="#" target="_blank">open separately?</a>
+
+I called this project "WHERE ARE YOU"
+
+1. CLIENT:
+      My android application (WhereAreYou) which periodically (if active) sends current location to server in following format
+      1X-41.1233X73.1233
+      which is (ID#LATITUDE#LONGITUDE where #=X)
+      
+2. SERVER:
+      The server (servlet) receives  the POST from client, parameters from POST is then written into MySQL (with timestamp)
+      Every call from CLIENT updates the entry of latitude and longitude.
+
+3. DISPLAY ON GOOGLE MAP:
+      A. ON FOLLOWING CLIENT (ANDROID)
+      <img src="../images/WHERE_ARE_YOU.png">
+      Google Maps Android API is used (https://developers.google.com/maps/documentation/android-api/?hl=en_US)
+      
+      B. FOR HTML DISPLAY
+      Google Maps JavaScript API is used
+      
+      On both the above cases, you would need to create an API Key (for each kind of access). For basic minimal uses, it will be free :)
+      
+      For my case, I used a call to my SERVER to get coordinates. That coordinate is then plotted to Google Map.
+      
+	  It is really a simple project. Next could be to
+			 i.   Generalize it (for various users to create ID)
+		     ii.  Package and Ship (client)
+		     iii. Some cosmetic changes to the way it gets displayed
+      
+</pre>               
+</body>
