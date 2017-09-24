@@ -29,7 +29,7 @@ function initialize() {
       zloc = xhttp.responseText.split("#");
     }
   };
-  xhttp.open("GET", "http://java-codeperformance.rhcloud.com/LaunchModule?target=GPS1&id=2", false);
+  xhttp.open("GET", "https://java-zeek.a3c1.starter-us-west-1.openshiftapps.com/LaunchModule?target=GPS1&id=2", false);
   xhttp.send();
   var bangalore = { lat: parseFloat(zloc[0]), lng: parseFloat(zloc[1]) };
   var map = new google.maps.Map(document.getElementById('map'), {

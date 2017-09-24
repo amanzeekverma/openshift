@@ -95,7 +95,7 @@ public class ApiAiWebHook  extends HttpServlet{
 		  
 		  String query = apiai_request.getResult().getResolvedQuery();
                   if (query.contains("lights")){
-                         String url = "http://java-codeperformance.rhcloud.com/LaunchModule?target=arduino&action=";
+                         String url = "https://java-zeek.a3c1.starter-us-west-1.openshiftapps.com/LaunchModule?target=arduino&action=";
                          if (query.contains(" on ")){
                                url = url+"on"; 
                          } else {

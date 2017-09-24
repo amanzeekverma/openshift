@@ -205,7 +205,7 @@ public class DonnaCntrlWebHookServlet extends HttpServlet{
                   public void run(){
                         try{
                         String action = text2.substring(6);
-                        String speakURL = "http://java-codeperformance.rhcloud.com/LaunchModule?target=speak&action="+URLEncoder.encode(action, "UTF-8");
+                        String speakURL = "https://java-zeek.a3c1.starter-us-west-1.openshiftapps.com/LaunchModule?target=speak&action="+URLEncoder.encode(action, "UTF-8");
                         System.out.println("sending "+speakURL);
                         URL obj = new URL(speakURL);
 			HttpURLConnection con = (HttpURLConnection) obj.openConnection();

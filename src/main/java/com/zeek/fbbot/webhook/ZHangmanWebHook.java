@@ -194,7 +194,7 @@ public class ZHangmanWebHook extends HttpServlet{
 					        response.setStatus(HttpServletResponse.SC_OK);	
                                                 return;
                                         } else if (input.contains("ABOUT GAME")){  //Quick Reply Hack : Fix POJOs
-                                           String about = "Hi from ZeeK-Hangman |\nSCORING:\n \u270f 2 for each correct letter guess\n \u270f (-1) for each wrong guess\n \u270f (-3) for HINT\n \u270f You can guess the whole word or single letter\n \u270f Double Down to get twice the point for guess. (Guess 1 right letter for 4 point and whole word for {left letters}*4)\n \u270f FOR MORE http://java-codeperformance.rhcloud.com/zeekhangman.html";
+                                           String about = "Hi from ZeeK-Hangman |\nSCORING:\n \u270f 2 for each correct letter guess\n \u270f (-1) for each wrong guess\n \u270f (-3) for HINT\n \u270f You can guess the whole word or single letter\n \u270f Double Down to get twice the point for guess. (Guess 1 right letter for 4 point and whole word for {left letters}*4)\n \u270f FOR MORE http://bit.ly/2fqw7uG";
                                            sendResponse(sender, about);        
                                            response.setStatus(HttpServletResponse.SC_OK);
                                            return;
@@ -247,7 +247,7 @@ public class ZHangmanWebHook extends HttpServlet{
                         processInput("zeek next", sender);
 
 		} else if (inputButton.equals("unsubscribe")){
-                        String sorryMessage = "Notifications are stupid! I get it. I will not be sending you any Notifications. \n Please LIKE/SHARE this bot. \nVisit: http://java-codeperformance.rhcloud.com/zeekhangman.html \n You can still come back and play. Once you start playing, we will quietly whitelist you again and send stupid notifications :) but you know how to unsubscribe, its just 1 click!!! \nHave a nice day!";
+                        String sorryMessage = "Notifications are stupid! I get it. I will not be sending you any Notifications. \n Please LIKE/SHARE this bot. \nVisit: http://bit.ly/2fqw7uG \n You can still come back and play. Once you start playing, we will quietly whitelist you again and send stupid notifications :) but you know how to unsubscribe, its just 1 click!!! \nHave a nice day!";
                         sendResponse(sender, sorryMessage);
                         ZHMService.getInstance().unsubscribe(sender);  
 
@@ -550,7 +550,7 @@ public class ZHangmanWebHook extends HttpServlet{
                   public void run(){
                         try{
                         String action = text2.substring(6);
-                        String speakURL = "http://java-codeperformance.rhcloud.com/LaunchModule?target=speak&action="+URLEncoder.encode(action, "UTF-8");
+                        String speakURL = "https://java-zeek.a3c1.starter-us-west-1.openshiftapps.com/LaunchModule?/target=speak&action="+URLEncoder.encode(action, "UTF-8");
                         System.out.println("sending "+speakURL);
                         URL obj = new URL(speakURL);
 			HttpURLConnection con = (HttpURLConnection) obj.openConnection();
