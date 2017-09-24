@@ -132,10 +132,10 @@ public class ZMSLnIServlet extends HttpServlet {
 		ResultSet rs = null;
 		if (con == null){
 			
-			String host = System.getenv("MYSQL_SERVICE_HOST");
-			String port = System.getenv("MYSQL_SERVICE_PORT");
-			String username = System.getenv("MYSQL_USER");
-			String password = System.getenv("MYSQL_PASSWORD");
+			String host = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+			String port = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
+			String username = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
+			String password = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
 
 			String url = String.format("jdbc:mysql://%s:%s/java", host, port);
 			 try {

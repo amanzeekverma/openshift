@@ -9,6 +9,9 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -50,6 +53,8 @@ public class ZHangmanWebHook extends HttpServlet{
         private static int testMode=1;
         private static final ArrayList<String> whiteListTesters = new ArrayList<String>(Arrays.asList("1343946588991496","-1"));
 
+        private static final DateFormat sdf = new SimpleDateFormat("yyyyMMdd HH:mm:ss");
+        
 	/************* FB Chat Bot variables *************************/
 	public static final String PAGE_TOKEN = "EAAY4CNnNWnsBAIvbhfebqoSIGKzAU0nw07OwtU6yZBXZAB276IfJQQIZAlARmOzNTcYfHwhBZAH6wiDBZBp50wZCDUyuDVWF1BTxXQZC31gguINwbwm5C2CmhnDxWuUGqQ1dYZACP8QAIunSGOZA8Us3nftn82r0xkhUUTcsoH1UJsQZDZD";
 											 
@@ -168,16 +173,16 @@ public class ZHangmanWebHook extends HttpServlet{
 						String text = "NEW CHALLENGE IS AVAILABLE NOW!";
 						List<String> goodUsers = ArenaCache.getInstance().getGoodUsers();
 						for (String user : goodUsers ){
+                                                        try { Thread.sleep(200); } catch(Exception e){} //Sleeping 200ms for D11  This is fucking sad!
 							//sendResponse(user, text);
                                                         final String user_f = user;
                                                         final String text_f = "NEW CHALLENGE IS AVAILABLE NOW!";
                                                         new Thread() { //F4 & D7
                                                                public void run(){
-                                                                  ZHangmanWebHook.sendNotification(user_f, text_f); 
+                                                                  //ZHangmanWebHook.sendNotification(user_f, text_f); 
+                                                                  System.out.println("No Notification send to "+user_f);
                                                                }
                                                         }.start();
-                                                        //sendNotification(user, text);  //F4 
-                                                        //try { Thread.sleep(300); } catch(Exception e){} //Sleeping 300ms for D7  This was fucking sad!
 						}
 						response.setStatus(HttpServletResponse.SC_OK);
 						return;
@@ -721,16 +726,17 @@ private static void sendNotification(String sender, String text){
     respMenu.setMessage(msg);
     respMenu.setRecipient(recipient);
     String jsonReply = new Gson().toJson(respMenu);
-    System.out.println("NOTIFICATION SENT | JSON = "+jsonReply);
+    String strDate = sdf.format(new Date()); 
+    System.out.println(strDate+" NOTIFICATION SENT | JSON = "+jsonReply);
     try {
      HttpEntity entity  = new ByteArrayEntity(jsonReply.getBytes("UTF-8"));
      httppost.setHeader("Content-Type", "application/json");
      httppost.setEntity(entity);
      HttpResponse ack = client.execute(httppost);
      String result = EntityUtils.toString(ack.getEntity());
-     System.out.println("NOTIFICATION RESULT | JSON ="+result);
+     System.out.println(strDate+" NOTIFICATION RESULT | JSON ="+result);
     }catch(Exception e){
-     System.out.println("NOTIFICATION SEND ERROR : "+e.getMessage());
+     System.out.println(strDate+" NOTIFICATION SEND ERROR : "+e.getMessage());
      e.printStackTrace();
     }
 }

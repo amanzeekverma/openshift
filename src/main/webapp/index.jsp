@@ -77,14 +77,12 @@ table, th, td {
 	<div id="display">
                 <input type="button" value="toggle screen" onclick="hideshow(document.getElementById('launchsec'))"<br>
 		<div id="display_inner">
-		This is a platform to post all code, analysis, document, tools, utilities, etc.<br><br>
-		All sad resources or resources that were sitting idle in a temp location, without any purpose in their life are now being converted into fancy/dynamic life 
-		where they can breathe. It may or may not be useful directly but they are living!<br><br>
-		All the code gets converted (with minimum possible manual effort) to get interactive via this website. Yes! they talk [:)] <br><br>
-		Left hand side panel is used to launch particular code and boom it goes here. Most of the code gets a generic jsp template and dynamically loads here. Some
-		privileged code have their own page.<br><br>
+		This is a platform to showcase various code. Of course, with a very stupid user interface :)<br><br>
+		In general code sitting idle with no purpose is intended to be uploaded and that way it could have some purpose<br><br>
+		Most of the effort is to convert code into SSCCE. Thanks to @openshift to provide a great platform to launch<br><br>
+		Left hand side panel is used to launch particular code and boom it goes here. Most of the code gets a generic jsp template and dynamically loads here. Some privileged code have their own page.<br><br>
 		Most of the resources can be downloaded (at users' risk)<br><br>
-		Some of the dynamic content might be blocked because of one or more of the following reasons
+		Some of the dynamic content might be blocked (or have an access code) because of one or more of the following reasons
 		<ul>
 			<li>Its under testing</li>
 			<li>Its personal</li>

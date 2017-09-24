@@ -42,7 +42,7 @@ function initialize() {
       zloc = xhttp.responseText.split("#");
     }
   };
-  xhttp.open("GET", "http://java-codeperformance.rhcloud.com/LaunchModule?target=GPS1&id=2", false);
+  xhttp.open("GET", "https://java-codeperformance.rhcloud.com/LaunchModule?target=GPS1&id=2", false);
   xhttp.send();
   var amanlocation = { lat: parseFloat(zloc[0]), lng: parseFloat(zloc[1]) };
   var map = new google.maps.Map(document.getElementById('map'), {

@@ -11,6 +11,15 @@ body {
     min-height: 100%;
     max-width: 800px;
 }
+
+a:link, a:visited, a:active {
+  text-decoration: none; color: #ADFF2F;
+}
+a:hover {
+  text-decoration: none; color: #FFFF00;	
+} 
+
+
 #wrapper {
 	border:1px solid Lime;
 }
@@ -28,6 +37,11 @@ h2 {
     color: white;
     text-align: center;
     font-size: 16px;
+}
+h3 {
+    color: white;
+    text-align: center;
+    font-size: 12px;
 }
 hr {
 	border-color: Lime;
